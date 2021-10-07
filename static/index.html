@@ -11,11 +11,13 @@
     <link href='style.css' rel='stylesheet' type='text/css'></link>
 </head>
 <body>
+    <!-- Only part that is shown on first connection -->
     <form class="username-form">
         <input id="username-input" placeholder="Username"></input>
         <button id="create-user-btn">Join Game</button>
     </form>
     
+    <!-- Shown after user chooses a name and logs in -->
     <div class="main-container">
         <button id="cookie-click-btn" style="width:50%">Cookie</button>
         <label for="clicks">Clicks</label>
@@ -25,6 +27,7 @@
         <br />
         <div>
             <table id="leaderboard" style="width:100%">
+                <!-- First row is table headers -->
                 <tr>
                     <th>Rank</th>
                     <th>Name</th>

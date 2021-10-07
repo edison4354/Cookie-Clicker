@@ -21,17 +21,20 @@ io.on("connection", (socket) => {
         io.emit("new user", username);
     })
 
+    // Handle users disconnecting
     socket.on('disconnect', () => {
         // This deletes the user by using the username we saved to the socket
+        console.log(`${socket.username} has disconnected`);
         delete onlineUsers[socket.username]
         io.emit('user has left', onlineUsers);
     });
 
+    // Send over the current standings
     socket.on('get current leaderboard', () => {
-        // Send over the current standings
         socket.emit('update leaderboard', getStandings());
     })
 
+    // Update number of cookie clicks and update standings
     socket.on('cookie click', () => {
         // If this is the first click, set clicks property
         if (!("clicks" in socket.data)) {
@@ -69,10 +72,12 @@ function getStandings() {
     return standings;
 }
 
+// Render homepage
 app.get('/', (req, res) => {
     res.render('static/index.html');
 })
   
+// Run on port 3000
 server.listen('3000', () => {
     console.log('Server listening on Port 3000');
 })
