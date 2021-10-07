@@ -12,14 +12,15 @@
 </head>
 <body>
     <!-- Only part that is shown on first connection -->
-    <form class="username-form">
-        <input id="username-input" placeholder="Username"></input>
-        <button id="create-user-btn">Join Game</button>
-    </form>
-    
+    <div class="Username-form">
+        <form class="username-form">
+            <input id="username-input" style="font-size:25pt;" placeholder="Username"></input>
+            <button id="create-user-btn" style="width:150px;height:100px;font-size:21pt;">Join Game</button>
+        </form>
+    </div>
     <!-- Shown after user chooses a name and logs in -->
     <div class="main-container">
-        <button id="cookie-click-btn" style="width:50%">Cookie</button>
+        <button id="cookie-click-btn" style="width:50%;height: 500px;"><input id="cookie-img" type="image" src="images/cookieclick.jpg"></button>
         <label for="clicks">Clicks</label>
         <p id="clicks">0</p>
 
