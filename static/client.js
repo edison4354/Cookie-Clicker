@@ -3,6 +3,8 @@ $(document).ready(() => {
     const socket = io.connect();
     let currentUser;
 
+    socket.emit('get current leaderboard');
+
     $('#create-user-btn').click((e)=>{
         e.preventDefault();
         if($('#username-input').val().length > 0){

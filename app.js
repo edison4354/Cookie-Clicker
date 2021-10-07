@@ -21,10 +21,10 @@ io.on("connection", (socket) => {
         io.emit("new user", username);
     })
 
-    // socket.on('get online users', () => {
-    //     //Send over the onlineUsers
-    //     socket.emit('get online users', onlineUsers);
-    // })
+    socket.on('get current leaderboard', () => {
+        //Send over the current standings
+        socket.emit('update leaderboard', getStandings());
+    })
 
     socket.on('cookie click', () => {
         // If this is the first click, set clicks property
@@ -35,24 +35,33 @@ io.on("connection", (socket) => {
             socket.data["clicks"] += 1;
         }
         socket.emit('cookie click', socket.data.clicks);
-        console.log(`${socket.username} has ${socket.data.clicks} clicks`);
+        // console.log(`${socket.username} has ${socket.data.clicks} clicks`);
 
-        // Table for updating the leaderboard
-        let standings = {};
-        let users = [];
-        for (user in onlineUsers) {
-            users.push(io.sockets.sockets.get(onlineUsers[user]));
-        }
-        users.sort((a, b) => {return b.data.clicks - a.data.clicks})
-        let rank = 1;
-        for (let i = 0; i < users.length; i++) {
-            user = users[i];
-            standings[user.username] = {rank: rank, clicks: user.data.clicks};
-            rank++;
-        }
-        io.emit('update leaderboard', standings);
+        // Get standings and update leaderboard for all users
+        io.emit('update leaderboard', getStandings());
     })
 });
+
+// Make a table for updating the leaderboard
+function getStandings() {
+    let standings = {};
+    let users = [];
+    // Look up each user by socket id
+    for (user in onlineUsers) {
+        users.push(io.sockets.sockets.get(onlineUsers[user]));
+    }
+    // Sort in descending order of clicks
+    users.sort((a, b) => {return b.data.clicks - a.data.clicks})
+    
+    // Fill out table
+    let rank = 1;
+    for (let i = 0; i < users.length; i++) {
+        user = users[i];
+        standings[user.username] = {rank: rank, clicks: user.data.clicks};
+        rank++;
+    }
+    return standings;
+}
 
 app.get('/', (req, res) => {
     res.render('static/index.html');
