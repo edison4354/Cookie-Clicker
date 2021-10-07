@@ -23,4 +23,6 @@ Then navigate to [localhost:3000](localhost:3000) in a web browser of your choic
 
 ## Contributors
 This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
-<a href="https://github.com/edison4354/Cookie-Clicker/graphs/contributors"><img src="https://avatars.githubusercontent.com/u/53628042?v=4"></a>
+<a href="https://github.com/edison4354/Cookie-Clicker/graphs/contributors">
+David Evans, Jairo Sanchez, Edison Li
+</a>
