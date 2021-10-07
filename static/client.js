@@ -13,7 +13,7 @@ $(document).ready(() => {
           socket.emit('new user', $('#username-input').val());
           // Save the current user when created
           currentUser = $('#username-input').val();
-          $('.username-form').remove();
+          $('.Username-form').remove();
           $('.main-container').css('display', 'flex');
         }
     });
