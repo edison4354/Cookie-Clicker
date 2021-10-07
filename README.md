@@ -20,3 +20,7 @@ Then navigate to [localhost:3000](localhost:3000) in a web browser of your choic
 1. Type a username into the text box and click the "Join Game" button
 2. Click the cookie
 3. Enjoy!
+
+## Contributors
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/docsifyjs/docsify/graphs/contributors"><img src="https://opencollective.com/docsify/contributors.svg?width=890" /></a>
