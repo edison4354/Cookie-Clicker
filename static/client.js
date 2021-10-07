@@ -21,9 +21,15 @@ $(document).ready(() => {
         socket.emit('cookie click');
     })
 
+    socket.on('user has left', () => {
+        // Update leaderboard when a user leaves
+        socket.emit('get current leaderboard');
+    })
+
     socket.on('cookie click', (clicks) => {
         $('#clicks').text(clicks);
     })
+
 
     socket.on('update leaderboard', (standings) => {
         $('#leaderboard tr:not(:first-child').remove()

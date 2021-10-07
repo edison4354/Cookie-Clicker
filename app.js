@@ -21,8 +21,14 @@ io.on("connection", (socket) => {
         io.emit("new user", username);
     })
 
+    socket.on('disconnect', () => {
+        // This deletes the user by using the username we saved to the socket
+        delete onlineUsers[socket.username]
+        io.emit('user has left', onlineUsers);
+    });
+
     socket.on('get current leaderboard', () => {
-        //Send over the current standings
+        // Send over the current standings
         socket.emit('update leaderboard', getStandings());
     })
 
