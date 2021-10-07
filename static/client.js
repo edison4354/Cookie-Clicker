@@ -16,10 +16,23 @@ $(document).ready(() => {
 
     $('#cookie-click-btn').click((e)=>{
         e.preventDefault();
-        socket.emit('cookie click')
+        socket.emit('cookie click');
     })
 
     socket.on('cookie click', (clicks) => {
-        $('#clicks').text(clicks)
+        $('#clicks').text(clicks);
+    })
+
+    socket.on('update leaderboard', (standings) => {
+        $('#leaderboard tr:not(:first-child').remove()
+        for (user in standings) {
+            $('#leaderboard tr:last').after(`
+            <tr>
+                <th>${standings[user].rank}</th>
+                <th>${user}</th>
+                <th>${standings[user].clicks}</th>
+            </tr>
+            `);
+        }
     })
 })

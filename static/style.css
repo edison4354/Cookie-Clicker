@@ -1,5 +1,5 @@
 .main-container {
     display: none;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
 }
