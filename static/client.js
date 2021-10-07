@@ -14,4 +14,8 @@ $(document).ready(() => {
         }
     });
 
+    $('#cookie-click-btn').click((e)=>{
+        e.preventDefault();
+        socket.emit('cookie click')
+    })
 })

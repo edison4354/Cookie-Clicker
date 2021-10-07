@@ -20,6 +20,17 @@ io.on("connection", (socket) => {
         console.log(`${username} has joined the game!`);
         io.emit("new user", username);
     })
+
+    socket.on('cookie click', () => {
+        // If this is the first click, set clicks property
+        if (!("clicks" in socket.data)) {
+            socket.data["clicks"] = 1;
+        } else {
+            // Increment total clicks
+            socket.data["clicks"] += 1;
+        }
+        console.log(`${socket.username} has ${socket.data.clicks} clicks`);
+    })
 });
 
 app.get('/', (req, res) => {
