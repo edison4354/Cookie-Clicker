@@ -29,6 +29,7 @@ io.on("connection", (socket) => {
             // Increment total clicks
             socket.data["clicks"] += 1;
         }
+        socket.emit('cookie click', socket.data.clicks);
         console.log(`${socket.username} has ${socket.data.clicks} clicks`);
     })
 });

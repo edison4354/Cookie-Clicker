@@ -18,4 +18,8 @@ $(document).ready(() => {
         e.preventDefault();
         socket.emit('cookie click')
     })
+
+    socket.on('cookie click', (clicks) => {
+        $('#clicks').text(clicks)
+    })
 })
