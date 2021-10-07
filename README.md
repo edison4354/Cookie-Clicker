@@ -2,10 +2,12 @@
 
 ## What is it?
 Cookie clicker is a game where you get to see how many times you click a cookie
+
 This version allows you to click competitively with other people using Socket.IO
 
 ## How to start?
 Visit the live site at: [Site not live yet]
+
 Or make a new instance to host locally by running the following commands in a terminal (requires git, npm, and node.js to be installed)
 ```
 git clone https://github.com/edison4354/Cookie-Clicker
