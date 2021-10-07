@@ -2,6 +2,8 @@
     display: none;
     flex-direction: column;
     width: 100%;
+    position: relative;
+    top: 0;
 }
 body{
     font-family: sans-serif;
@@ -13,10 +15,4 @@ div.Username-form {
     margin-top: 320px;
 }
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
 
