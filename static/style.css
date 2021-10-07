@@ -1,0 +1,5 @@
+.main-container {
+    display: none;
+    flex-direction: row;
+    width: 100%;
+}
